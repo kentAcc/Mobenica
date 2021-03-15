@@ -1,0 +1,250 @@
+main {
+  min-height: 80vh;
+}
+
+.rating spam {
+  margin: 0.1rem;
+}
+
+h3 {
+  padding: 1rem 0;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+/* carousel */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+.bg-green {
+  background-color: transparent !important;
+  height: 50px;
+}
+.list-group-item
+{
+  color: black  !important;
+}
+.todo{
+  background-color: red;
+  padding-top: 15px;
+}
+.medio{
+  background-color: blue;
+}
+.borderwhite {
+  border: 1px solid #fff !important;
+}
+.heightsearch {
+  height: 28px !important;
+}
+.btnsearch {
+  padding: 0 5px !important;
+  color: white !important;
+  border-color: white !important;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+}
+.font-bold {
+  font-weight: bold;
+}
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 5px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.my-float {
+  margin-top: 16px;
+}
+.linkw {
+  width: 205px;
+  text-decoration: none;
+}
+.nofloat {
+  width: 32px;
+  height: 32px;
+  margin-left: 20px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 25px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+}
+.my-float2 {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.ml {
+  margin-left: 12px;
+}
+.nvarmenu {
+  height: 30px;
+}
+.carousel img {
+  height: 500px;
+  width: 1300px;
+
+  margin-top: -8px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: white;
+  margin-top: 10px;
+}
+.carousel a {
+  margin: 0 auto;
+}
+.card {
+  border: 0 !important;
+}
+.rounded1 {
+  border-radius: 50%;
+  background-color: white;
+  width: 400px;
+  height: 280px;
+  margin: auto;
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
+.carousel-item {
+}
+.photo {
+  height: 60px;
+  width: 300px;
+}
+.carousel-item .rounded1 .carousel-caption {
+  padding-top: 0px;
+}
+@media (max-width: 900px) {
+  .carousel-caption h2 {
+    font-size: 2.5vw;
+  }
+  .rounded1 {
+    display: flex;
+    width: 300px;
+    height: 260px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 7% !important;
+  }
+  .my-float2 {
+    margin-top: 3px;
+    margin-left: 5px;
+  }
+  .linkw {
+    width: 30px;
+    clear: right;
+  }
+
+  .nofloat {
+    width: 27px;
+    height: 27px;
+    margin-left: 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 19px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+  }
+  .notext {
+    visibility: hidden;
+  }
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: red !important;
+}
+header {
+  width: 100%;
+  max-width: 100%;
+  height: 40vh;
+  background-image: url("/f1.jpg");
+  background-attachment: fixed;
+  background-position: top;
+  background-size: contain;
+  position: relative;
+  overflow: hidden;
+  color: rgb(246, 246, 250);
+  text-align: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: white !important;
+}
+.card {
+  background-color: rgba(23, 1, 0, 0.1) !important;
+
+  color: white;
+}
+
+header .textos {
+  margin-top: 152px;
+}
+
+header .titulo {
+  font-size: 85px;
+}
+
+header .subtitulo {
+  font-size: 42px;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+header .boton {
+  display: inline-block;
+  padding: 6px;
+  width: 128px;
+  border: 1px solid #fff;
+  color: rgb(255, 4, 213);
+  font-size: 19px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 16px;
+}
