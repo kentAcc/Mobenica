@@ -42,7 +42,12 @@ console.log("process.env.PUBLIC_URL")
       ) : (
         <>
 
-     
+         <Row>
+            <Col >
+            <h2 className="textaligncenter">Productos</h2>
+            </Col>
+
+         </Row>
           <Row>
             {products
               ? products.map((product, index) => (
@@ -52,10 +57,15 @@ console.log("process.env.PUBLIC_URL")
                 ))
               : ""}
           </Row>
+          <Row>
+            <Col >
+            <h2 className="textaligncenter">Categorias</h2>
+            </Col>
 
+         </Row>
           <Row  >
             <Col xs={6} sm={6} md={6} lg={6} xl={6} className='flexx '>
-            <Link to={`/tipoo/1/nivel/3`}>
+            <Link to={`/brand/salas/nivel/3`}>
               <Card.Img
                 className='card-1'
                 src={"images/s1.jpg"}
@@ -63,7 +73,7 @@ console.log("process.env.PUBLIC_URL")
               </Link>
             </Col>
           <Col xs={6}  sm={6} md={6} lg={6} xl={6} className='flexx '>
-            <Link to={`/tipoo/2/nivel/3`}>
+            <Link to={`/brand/recamaras/nivel/3`}>
               <Card.Img
                 className='card-1'
                 src="images/s2.jpg"
@@ -73,7 +83,7 @@ console.log("process.env.PUBLIC_URL")
           </Row>
           <Row  >
             <Col xs={6} sm={6} md={6} lg={6} xl={6} className='flexx '>
-            <Link to={`/tipoo/1/nivel/3`}>
+            <Link to={`/brand/comedores/nivel/3`}>
               <Card.Img
                 className='card-1'
                 src={"images/s3.jpg"}
@@ -81,7 +91,7 @@ console.log("process.env.PUBLIC_URL")
               </Link>
             </Col>
           <Col xs={6}  sm={6} md={6} lg={6} xl={6} className='flexx '>
-            <Link to={`/tipoo/2/nivel/3`}>
+            <Link to={`/brand/entretenimiento/nivel/3`}>
               <Card.Img
                 className='card-1'
                 src="images/s4.jpg"

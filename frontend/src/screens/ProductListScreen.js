@@ -6,7 +6,7 @@ import Message from "../components/Message"
 import Loader from "../components/Loader"
 import Paginate from "../components/Paginate"
 import {
-  listProducts,
+  listAllProducts,
   deleteProduct,
   createProduct,
 } from "../actions/productAction"
@@ -15,8 +15,8 @@ const ProductListScreen = ({ history, match }) => {
   const PageNumber = match.params.pageNumber || 1
   const dispatch = useDispatch()
 
-  const productList = useSelector((state) => state.productList)
-  const { loading, error, products, pages, page } = productList
+  const productAllList = useSelector((state) => state.productAllList)
+  const { loading, error, products, pages, page } = productAllList
 
   const productDelete = useSelector((state) => state.productDelete)
   const {
@@ -46,7 +46,7 @@ const ProductListScreen = ({ history, match }) => {
     if (successCreate) {
       history.push(`/admin/product/${createdProduct._id}/edit`)
     } else {
-      dispatch(listProducts("", PageNumber))
+      dispatch(listAllProducts("", PageNumber))
     }
   }, [
     dispatch,

@@ -24,6 +24,7 @@ import {
   PRODUCT_TOP_FAIL,
   PRODUCT_TOP_RESET,
   PRODUCT_TOP_REQUEST,
+  PRODUCT_LISTALL_REQUEST,PRODUCT_LISTALL_SUCCESS,PRODUCT_LISTALL_FAIL
 } from "../constants/productConstants"
 export const productListReducer = (state = { products: [] }, action) => {
   switch (action.type) {
@@ -37,6 +38,25 @@ export const productListReducer = (state = { products: [] }, action) => {
         page: action.payload.page,
       }
     case PRODUCT_LIST_FAIL:
+      return { loading: false, error: action.payload }
+    default:
+      return state
+  }
+}
+
+
+export const productAllListReducer = (state = { products: [] }, action) => {
+  switch (action.type) {
+    case PRODUCT_LISTALL_REQUEST:
+      return { loading: true, products: [] }
+    case PRODUCT_LISTALL_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload.products,
+        pages: action.payload.pages,
+        page: action.payload.page,
+      }
+    case PRODUCT_LISTALL_FAIL:
       return { loading: false, error: action.payload }
     default:
       return state

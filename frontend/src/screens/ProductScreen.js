@@ -78,7 +78,7 @@ const ProductScreen = ({ history, match }) => {
       ) : (
         <>
           <Meta title={product.name}></Meta>
-          <Row  >
+          <Row    >
             <Col md={7}>
               <ImageZoom images={product.image}></ImageZoom>
             </Col>
@@ -116,7 +116,7 @@ const ProductScreen = ({ history, match }) => {
                 </ListGroup.Item>
                 <ListGroup.Item>
                 <Row>
-                <Col> Intentario:</Col>
+                <Col> Inventario:</Col>
                 <Col>
                 {product.countStock > 0
                 ? "Existencia"
@@ -149,7 +149,7 @@ const ProductScreen = ({ history, match }) => {
              <Row  className=" mt-3">
                   <Col>
                   <Button onClick={addToCartHandler} className='btn-block' type='button' disabled={product.countInStock === 0}>                
-                    Add to cart
+                    Agregar a carrito de compra
                 </Button>
                   </Col>
 
