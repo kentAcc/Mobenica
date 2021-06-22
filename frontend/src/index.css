@@ -1,11 +1,7 @@
 main {
   min-height: 80vh;
-  background-color: #f7f7f9;
 }
-.container {
-  background-color: white;
-  margin-top: 20px;
-}
+
 .rating spam {
   margin: 0.1rem;
 }
@@ -38,31 +34,8 @@ h2 {
   top: 0;
 }
 .bg-green {
-  background-color: transparent !important;
-  height: 50px;
+  background-color: #567714 !important;
 }
-.list-group-item {
-  color: black !important;
-}
-.todo {
-  background-color: red;
-  padding-top: 15px;
-}
-.medio {
-  background-color: blue;
-}
-.borderwhite {
-  border: 1px solid #fff !important;
-}
-.heightsearch {
-  height: 28px !important;
-}
-.btnsearch {
-  padding: 0 5px !important;
-  color: white !important;
-  border-color: white !important;
-}
-
 .carousel-caption h2 {
   color: #fff;
 }
@@ -112,26 +85,22 @@ h2 {
 .ml {
   margin-left: 12px;
 }
-.nvarmenu {
-  height: 30px;
-}
-.carousel img {
-  height: 500px;
-  width: 1300px;
 
+.carousel img {
+  height: 300px;
+  width: 400px;
+  padding: 40px;
+  margin: 30px;
   margin-top: -8px;
   margin-left: auto;
   margin-right: auto;
   display: block;
   background-color: white;
-  margin-top: 10px;
 }
 .carousel a {
   margin: 0 auto;
 }
-.card {
-  border: 0 !important;
-}
+
 .rounded1 {
   border-radius: 50%;
   background-color: white;
@@ -145,10 +114,11 @@ h2 {
   margin-bottom: 25px;
 }
 .carousel-item {
+  padding-bottom: 20px;
 }
 .photo {
-  height: 60px;
-  width: 300px;
+  height: 90px;
+  width: 160px;
 }
 .carousel-item .rounded1 .carousel-caption {
   padding-top: 0px;
@@ -165,6 +135,17 @@ h2 {
     margin-bottom: 25px;
   }
 
+  .carousel img {
+    height: 280px;
+    width: 280px;
+    padding: 40px;
+    margin: 30px;
+    margin-top: -8px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: white;
+  }
   .carousel-control-prev,
   .carousel-control-next {
     width: 7% !important;
@@ -196,167 +177,3 @@ h2 {
     visibility: hidden;
   }
 }
-.navbar-dark .navbar-nav .nav-link {
-  color: red !important;
-}
-header {
-  width: 100%;
-  max-width: 100%;
-  height: 40vh;
-  background-image: url("/f1.jpg");
-  background-attachment: fixed;
-  background-position: top;
-  background-size: contain;
-  position: relative;
-  overflow: hidden;
-  color: rgb(246, 246, 250);
-  text-align: center;
-  background-repeat: no-repeat;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-}
-.navbar-light .navbar-nav .nav-link {
-  color: white !important;
-}
-.card {
-  background-color: white !important;
-
-  color: white;
-}
-.card-title {
-  text-align: center;
-}
-.card-text {
-  text-align: center;
-}
-header .textos {
-}
-
-header .titulo {
-  font-size: 85px;
-}
-
-header .subtitulo {
-  font-size: 42px;
-  font-weight: 300;
-  margin-bottom: 32px;
-}
-
-header .boton {
-  display: inline-block;
-  padding: 6px;
-  width: 128px;
-  border: 1px solid #fff;
-  color: rgb(255, 4, 213);
-  font-size: 19px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 16px;
-}
-.containerwhite {
-  background-color: white;
-}
-/*----------------------------footer-----------------------------*/
-
-*,
-::before,
-::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  font-size: 10vw;
-  text-align: center;
-  margin-top: 20px;
-  color: #333;
-}
-
-.contenu {
-  /* grow shrink basis */
-  flex: 1 0 auto;
-}
-.contenu p {
-  padding: 5vw 10vw;
-  text-align: justify;
-}
-
-footer {
-  flex-shrink: 0;
-  border-top: 10px rgb(224, 16, 16);
-  width: 100%;
-  background: #221f1f;
-  color: rgb(155, 152, 152);
-}
-.contenu-footer {
-  width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  font-size: 20px;
-  padding: 50px 0 100px;
-}
-
-.bloc {
-  width: 25%;
-  margin: 0 30px;
-}
-.textaligncenter {
-  text-align: center;
-}
-/* contact */
-.footer-contact h3,
-.footer-services h3,
-.footer-horaires h3,
-.footer-medias h3 {
-  font-size: 23px;
-  padding-bottom: 15px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.footer-contact p {
-  padding: 5px 0;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-}
-.liste-services,
-.liste-horaires,
-.liste-media a {
-  list-style-type: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-}
-.liste-media a {
-  text-decoration: none;
-  color: rgb(202, 201, 201);
-  display: flex;
-  align-items: center;
-  font-size: 25px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-}
-
-.liste-services a {
-  text-decoration: none;
-  color: rgb(201, 199, 199);
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-}
-.liste-services a:hover {
-  color: rgb(248, 9, 9);
-}
-/* contact */
-.footer-contact h3,
-.footer-services h3,
-.footer-horaires h3,
-.footer-medias h3 {
-  font-size: 23px;
-  padding-bottom: 15px;
-  font-family: "Montserrat", sans-serif;
-}
-
-/*----------------------------endfooter-----------------------------*/

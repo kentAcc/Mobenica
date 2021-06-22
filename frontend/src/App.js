@@ -22,7 +22,7 @@ const App = () => {
   return (
     <Router>
       <Header></Header>
-      <main >
+      <main className='py-3'>
         <Container>
           <Route path='/login' component={LoginScreen} exact></Route>
           <Route path='/placeorder' component={PlaceOrderScreen} exact></Route>

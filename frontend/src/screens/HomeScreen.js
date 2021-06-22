@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
-import { Row, Col ,Card} from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import Product from "../components/Product"
 import Message from "../components/Message"
@@ -9,8 +9,7 @@ import Paginate from "../components/Paginate"
 import Meta from "../components/Meta"
 import { listProducts } from "../actions/productAction"
 import ProductCarouserl from "../components/ProductCarouserl"
- 
-import {Helmet} from 'react-helmet';
+
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword
   const pageNumber = match.params.pageNumber || 1
@@ -22,8 +21,7 @@ const HomeScreen = ({ match }) => {
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber))
   }, [dispatch, keyword, pageNumber])
-console.log(process.env.PUBLIC_URL)
-console.log("process.env.PUBLIC_URL")
+
   return (
     <>
       <Meta></Meta>
@@ -41,13 +39,6 @@ console.log("process.env.PUBLIC_URL")
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-
-         <Row>
-            <Col >
-            <h2 className="textaligncenter">Productos</h2>
-            </Col>
-
-         </Row>
           <Row>
             {products
               ? products.map((product, index) => (
@@ -57,48 +48,7 @@ console.log("process.env.PUBLIC_URL")
                 ))
               : ""}
           </Row>
-          <Row>
-            <Col >
-            <h2 className="textaligncenter">Categorias</h2>
-            </Col>
 
-         </Row>
-          <Row  >
-            <Col xs={6} sm={6} md={6} lg={6} xl={6} className='flexx '>
-            <Link to={`/brand/salas/nivel/3`}>
-              <Card.Img
-                className='card-1'
-                src={"images/s1.jpg"}
-              ></Card.Img>
-              </Link>
-            </Col>
-          <Col xs={6}  sm={6} md={6} lg={6} xl={6} className='flexx '>
-            <Link to={`/brand/recamaras/nivel/3`}>
-              <Card.Img
-                className='card-1'
-                src="images/s2.jpg"
-              ></Card.Img>
-              </Link>
-            </Col>
-          </Row>
-          <Row  >
-            <Col xs={6} sm={6} md={6} lg={6} xl={6} className='flexx '>
-            <Link to={`/brand/comedores/nivel/3`}>
-              <Card.Img
-                className='card-1'
-                src={"images/s3.jpg"}
-              ></Card.Img>
-              </Link>
-            </Col>
-          <Col xs={6}  sm={6} md={6} lg={6} xl={6} className='flexx '>
-            <Link to={`/brand/entretenimiento/nivel/3`}>
-              <Card.Img
-                className='card-1'
-                src="images/s4.jpg"
-              ></Card.Img>
-              </Link>
-            </Col>
-          </Row>
           <Paginate
             pages={pages}
             page={page}

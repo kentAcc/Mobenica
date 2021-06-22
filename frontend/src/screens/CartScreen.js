@@ -29,7 +29,7 @@ const CartScreen = ({ match, location, history }) => {
   return (
     <Row>
       <Col md={8}>
-        <h1>Carrito de compra</h1>
+        <h1>shopping cart</h1>
         {cartItems.length === 0 ? (
           <Message>
             your cart is empty<Link to='/'>Regresar</Link>{" "}
@@ -41,7 +41,7 @@ const CartScreen = ({ match, location, history }) => {
                 <Row>
                   <Col md={2}>
                     <Image
-                      src={item.image.split(',')[0]}
+                      src={item.image}
                       alt={item.name}
                       fluid
                       rounded
@@ -104,7 +104,7 @@ const CartScreen = ({ match, location, history }) => {
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >
-                Proceder a confirmar
+                proceed to Checkout
               </Button>
             </ListGroup.Item>
           </ListGroup>

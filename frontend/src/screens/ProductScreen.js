@@ -78,87 +78,144 @@ const ProductScreen = ({ history, match }) => {
       ) : (
         <>
           <Meta title={product.name}></Meta>
-          <Row    >
-            <Col md={7}>
+          <Row>
+            <Col md={6}>
               <ImageZoom images={product.image}></ImageZoom>
             </Col>
 
-              <Col md={5}>
-              <Row>
-                <Col  md={6}>
-                  <ListGroup variant='flush'>
-                  <ListGroup.Item>
+            <Col md={3}>
+              <ListGroup variant='flush'>
+                <ListGroup.Item>
                   <h2>{product.name}</h2>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
+                </ListGroup.Item>
+                <ListGroup.Item>
                   <Rating
-                  value={product.rating}
-                  text={`${product.numReviews} reseñas`}
+                    value={product.rating}
+                    text={`${product.numReviews} reseñas`}
                   ></Rating>
-                  </ListGroup.Item>
-
-                  <ListGroup.Item>Precio:${product.price}</ListGroup.Item>
-                  <ListGroup.Item>
-                  Descripción:{product.description}
-                  </ListGroup.Item>
-                  </ListGroup>
-                </Col>
-                <Col md={6}>
-                <Card>
-                <ListGroup>
-                <ListGroup.Item>
-                <Row>
-                <Col> Precio:</Col>
-                <Col>
-                <strong> ${product.price}</strong>
-                </Col>
-                </Row>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                <Row>
-                <Col> Inventario:</Col>
-                <Col>
-                {product.countStock > 0
-                ? "Existencia"
-                : "Fuera de existencia"}
-                </Col>
-                </Row>
-                </ListGroup.Item>
-                {product.countStock > 0 && (
-                <ListGroupItem>
-                <Row>
-                <Col>#</Col>
-                <Col>
-                <Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>              
-                {[...Array(product.countInStock).keys()].map(
-                (x) => (
-                <option key={x + 1} value={x + 1}> {x + 1}  </option>                               
-                )
-                )}
-                </Form.Control>
-                </Col>
-                </Row>
-                </ListGroupItem>
-                )}
-               
-                </ListGroup>
-                </Card>
-                </Col>
-              
-              </Row>
-             <Row  className=" mt-3">
-                  <Col>
-                  <Button onClick={addToCartHandler} className='btn-block' type='button' disabled={product.countInStock === 0}>                
-                    Agregar a carrito de compra
-                </Button>
-                  </Col>
 
-             </Row>
+                <ListGroup.Item>Precio:${product.price}</ListGroup.Item>
+                <ListGroup.Item>
+                  Descripción:${product.description}
+                </ListGroup.Item>
+              </ListGroup>
             </Col>
-           
-                           
+            <Col md={3}>
+              <Card>
+                <ListGroup>
+                  <ListGroup.Item>
+                    <Row>
+                      <Col> Precio:</Col>
+                      <Col>
+                        <strong> ${product.price}</strong>
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <Row>
+                      <Col> Stock:</Col>
+                      <Col>
+                        {product.countInStock > 0
+                          ? "In Stock"
+                          : "out of stock1"}
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                  {product.countInStock > 0 && (
+                    <ListGroupItem>
+                      <Row>
+                        <Col>Qty</Col>
+                        <Col>
+                          <Form.Control
+                            as='select'
+                            value={qty}
+                            onChange={(e) => setQty(e.target.value)}
+                          >
+                            {[...Array(product.countInStock).keys()].map(
+                              (x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              )
+                            )}
+                          </Form.Control>
+                        </Col>
+                      </Row>
+                    </ListGroupItem>
+                  )}
+                  <ListGroup.Item>
+                    <Button
+                      onClick={addToCartHandler}
+                      className='btn-block'
+                      type='button'
+                      disabled={product.countInStock === 0}
+                    >
+                      Add to cart
+                    </Button>
+                  </ListGroup.Item>
+                </ListGroup>
+              </Card>
+            </Col>
           </Row>
-           
+          <Row>
+            <Col md={6}>
+              <h2>Reseñas</h2>
+              {product.reviews.length === 0 && <Message>No reviews</Message>}
+              <ListGroup variant='flush'>
+                {product.reviews.map((review) => (
+                  <ListGroup.Item key={review._id}>
+                    <strong>{review.name}</strong>
+                    <Rating value={review.rating} text=''></Rating>
+                    <p>{review.createdAt.substring(0, 10)}</p>
+                    <p>{review.comment}</p>
+                  </ListGroup.Item>
+                ))}
+                <ListGroup.Item>
+                  <h2>Escribe una reseña</h2>
+                  {errorProductReview && (
+                    <Message variant='danger' booltemporary='true'>
+                      {errorProductReview}
+                    </Message>
+                  )}
+                  {userInfo ? (
+                    <Form onSubmit={submitHandler}>
+                      <Form.Group controlId='rating'>
+                        <Form.Label>Clasificación</Form.Label>
+                        <Form.Control
+                          as='select'
+                          onChange={(e) => setRating(e.target.value)}
+                        >
+                          <option value=''>Select..</option>
+                          <option value='1'>1 - Pobre</option>
+                          <option value='2'>2 - Justo</option>
+                          <option value='3'>3 - Bueno</option>
+                          <option value='4'>4 - Muy bueno</option>
+                          <option value='5'>5 - Excelente</option>
+                        </Form.Control>
+                      </Form.Group>
+                      <Form.Group controlId='comment'>
+                        <Form.Label>Comentarios</Form.Label>
+                        <Form.Control
+                          as='textarea'
+                          row='3'
+                          value={comment}
+                          onChange={(e) => setComment(e.target.value)}
+                        ></Form.Control>
+                      </Form.Group>
+                      <Button type='submit' variant='primary'>
+                        Enviar
+                      </Button>
+                    </Form>
+                  ) : (
+                    <Message booltemporary='false'>
+                      please <Link to='/login'>sing in</Link> to writte a review
+                    </Message>
+                  )}
+                </ListGroup.Item>
+              </ListGroup>
+            </Col>
+          </Row>
         </>
       )}
     </>

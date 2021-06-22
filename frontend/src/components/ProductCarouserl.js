@@ -21,17 +21,20 @@ const ProductCarousel = () => {
   ) : error ? (
     <Message variant='danger'>{error}</Message>
   ) : (
-    <Carousel pause=' py-2 hover'  >
+    <Carousel pause='hover' className='bg-dark'>
       {products.length > 0
         ? products.map((product) => (
-            <Carousel.Item key={product._id}>              
+            <Carousel.Item key={product._id}>
+              <div className='rounded1'>
                 <Link to={`/product/${product._id}`}>
-                  <Image src={product.image.split(",")[0]} alt={product.name} fluid />
+                  <Image src={product.image.split(",")[0]} alt={product.name} />
                   <Carousel.Caption className='carousel-caption'>
-                    
+                    <h2>
+                      {product.name} (${product.price})
+                    </h2>
                   </Carousel.Caption>
                 </Link>
-              
+              </div>
             </Carousel.Item>
           ))
         : ""}

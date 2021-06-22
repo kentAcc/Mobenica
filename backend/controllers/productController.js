@@ -5,7 +5,7 @@ import Product from "../models/productModule.js"
 //@route        GEt /api/products
 //@acces        public
 const getProducts = AsyncHandler(async (req, res) => {
-  const pageSize =12
+  const pageSize = 4
   const page = Number(req.query.pageNumber) || 1
 
   const keyword = req.query.keyword
@@ -15,39 +15,13 @@ const getProducts = AsyncHandler(async (req, res) => {
           $options: "i",
         },
       }
-    : {category:{ $in: [1, 2] }}
+    : {}
 
   const count = await Product.countDocuments({ ...keyword })
   const products = await Product.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1))
 
-  res.json({ products, page, pages: Math.ceil(count / pageSize) })
-})
-
-
-
-//@description  Fetch all products
-//@route        GEt /api/products/all
-//@acces        public
-const getAllProducts = AsyncHandler(async (req, res) => {
-  const pageSize =12
-  const page = Number(req.query.pageNumber) || 1
-
-  const keyword = req.query.keyword
-    ? {
-        name: {
-          $regex: req.query.keyword,
-          $options: "i",
-        },
-      }
-    : { }
-
-  const count = await Product.countDocuments({ ...keyword })
-  const products = await Product.find({ ...keyword })
-    .limit(pageSize)
-    .skip(pageSize * (page - 1))
-console.log(products)
   res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
@@ -109,7 +83,7 @@ const updateProduct = AsyncHandler(async (req, res) => {
     image,
     brand,
     category,
-    countStock,
+    countInStock,
   } = req.body
 
   const product = await Product.findById(req.params.id)
@@ -120,7 +94,7 @@ const updateProduct = AsyncHandler(async (req, res) => {
     product.image = image
     product.brand = brand
     product.category = category
-    product.countStock = countStock
+    product.countInStock = countInStock
     const updatedProduct = await product.save()
     res.status(201).json(updatedProduct)
   } else {
@@ -168,7 +142,7 @@ const createProductReview = AsyncHandler(async (req, res) => {
 //@route        get /api/products/top
 //@acces        Private
 const getTopProducts = AsyncHandler(async (req, res) => {
-  const products = await Product.find({"category":"0"}).sort({ rating: -1 }).limit(3)
+  const products = await Product.find({}).sort({ rating: -1 }).limit(3)
   res.json(products)
 })
 
@@ -179,5 +153,5 @@ export {
   createProduct,
   updateProduct,
   createProductReview,
-  getTopProducts,getAllProducts
+  getTopProducts,
 }
